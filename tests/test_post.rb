@@ -10,6 +10,12 @@ class TestPost < Test::Unit::TestCase
     assert_equal(2014, p.date.year)
     assert_equal(10, p.date.month)
     assert_equal(28, p.date.day)
+
+    p = Blog::Post.new("Derp", Date.new(2012, 2, 13))
+    assert_equal("Derp", p.title)
+    assert_equal(2012, p.date.year)
+    assert_equal(2, p.date.month)
+    assert_equal(13, p.date.day)
   end
 
   def test_post_content
