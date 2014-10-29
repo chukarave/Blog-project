@@ -1,19 +1,14 @@
 module Blog
 
   class Post
-    
+    attr_reader :title, :date
+    attr_accessor :content
+
     def initialize(title, date) 
       @title = title
       @date = date
+      @content = content
     end
-
-    def title
-      return @title
-    end
-
-    def date
-      return @date.to_date
-    end  
 
   end
 
