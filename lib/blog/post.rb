@@ -12,7 +12,7 @@ module Blog
     end
 
     def date
-      return Date.today - 1
+      return @date.to_date
     end  
 
   end
