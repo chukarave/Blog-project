@@ -12,9 +12,9 @@ class TestPost < Test::Unit::TestCase
   def test_all_posts
     posts = @storage.get_all_posts()
 
-    assert_kind_of(Array, posts)
-    assert_equal(3, posts.length)
-    assert_kind_of(Blog::Post, posts[0])
+    assert_kind_of(Array, posts)            # asserts that posts is an array
+    assert_equal(3, posts.length)           # asserts that the base directory contains 3 posts
+    assert_kind_of(Blog::Post, posts[0])    # using the Post class, asserts that each of the posts is actually a post.
     assert_kind_of(Blog::Post, posts[1])
     assert_kind_of(Blog::Post, posts[2])
   end

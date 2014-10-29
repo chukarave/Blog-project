@@ -3,6 +3,7 @@ require 'date'
 
 require "blog/version"
 require "blog/post"
+require "blog/storage"
 
 module Blog
   class App < Sinatra::Application
