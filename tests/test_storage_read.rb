@@ -2,7 +2,7 @@ require "test/unit"
 
 require "blog"
 
-class TestPost < Test::Unit::TestCase
+class TestStorageRead < Test::Unit::TestCase
 
   def setup
     base_dir = File.join(File.dirname(__FILE__), ["..", "/resources/test_data"])
