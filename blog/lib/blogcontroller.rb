@@ -13,4 +13,8 @@ get '/' do
   return 'Hello world'
 end
 
-
+get '/:year/:month/:day/:title'do
+   = params [
+    
+  
+  ]
