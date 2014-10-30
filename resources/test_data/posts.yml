@@ -1,10 +1,10 @@
 ---
 - title: Sollicitudin Dapibus Ullamcorper
-  slug: sollicitudin-dapibus-ullamcorper
+  id: sollicitudin-dapibus-ullamcorper
   date: 2014-10-10 17:17:00.000000000 +02:00
 - title: Purus Ornare
-  slug: purus-ornare
+  id: purus-ornare
   date: 2014-06-13 04:41:00.000000000 +02:00
 - title: Fringilla Ipsum
-  slug: fringilla-ipsum
+  id: fringilla-ipsum
   date: 2013-12-14 19:27:00.000000000 +01:00
