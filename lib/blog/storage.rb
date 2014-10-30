@@ -25,10 +25,10 @@ module Blog
     def get_post_by_id(id)
        @yaml.map do |value|
         if value["id"] == id
-          return OpenStruct.new(:title => value["title"])         # the output of this method should be an object, on which the method .title could be called.
+          return OpenStruct.new(value)         # the output of this method should be an object, on which the method .title could be called.
         end                                                  # to do that, an iteration is implemented and if the id value of a Hashmap equals the argument,     
-      end                                                    # a new instance of the OpenStruct class is created, with which an object is generated using the    
-     end                                                     # title value of the correct hash. 
+      end                                                    # a new instance of the OpenStruct class is created, with which an object is generated.    
+     end                                                    
 
     end
 end
