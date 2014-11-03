@@ -21,9 +21,11 @@ class TestStorageRead < Test::Unit::TestCase
 
   def test_get_post_by_id
     p1 = @storage.get_post_by_id("fringilla-ipsum")
+    assert_kind_of(Blog::Post, p1)
     assert_equal("Fringilla Ipsum", p1.title)
 
     p2 = @storage.get_post_by_id("purus-ornare")
+    assert_kind_of(Blog::Post, p2)
     assert_equal("Purus Ornare", p2.title)
   end
 end
