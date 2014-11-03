@@ -1,16 +1,15 @@
 require "test/unit"
 require "yaml"
-
 require "blog"
 
 class TestStorageWrite < Test::Unit::TestCase
 
   def setup
     @base_dir = File.join("/", ["tmp", "blog-test-data"])
-    @storage = Blog::Storage.new(base_dir)
+    @storage = Blog::Storage.new(@base_dir)
   end
 
-  def test_store_post(post)
+  def test_store_post()
 
     # make a few blog posts
     p1 = Blog::Post.new("lorem-ipsum", "Lorem Ipsum", Date.new(2014, 8, 17))
@@ -51,5 +50,4 @@ class TestStorageWrite < Test::Unit::TestCase
     ))
   end
 end
-
 
