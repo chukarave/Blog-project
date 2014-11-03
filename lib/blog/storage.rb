@@ -25,7 +25,11 @@ module Blog
     end
 
     def yaml_load
-      return YAML::load(File.open(@yaml_path, 'r'))    # open the yml file and load its contents - results in an array of hashes, one for each post
+      begin
+        return YAML::load(File.open(@yaml_path, 'r'))    # open the yml file and load its contents - results in an array of hashes, one for each post
+      rescue
+        return false
+      end  
     end
 
     def get_all_posts()
