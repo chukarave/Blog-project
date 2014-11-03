@@ -42,7 +42,7 @@ class TestStorageWrite < Test::Unit::TestCase
     ))
 
     assert_equal(true, File.exists?(
-      File.join(@base_dir, ["2012", "09", "2", "fringilla-sit.md"])
+      File.join(@base_dir, ["2012", "09", "02", "fringilla-sit.md"])
     ))
 
     assert_equal(true, File.exists?(
