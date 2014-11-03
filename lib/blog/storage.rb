@@ -83,7 +83,7 @@ module Blog
     end  
 
     def yaml_update(posts)            # the method gets an array of all posts as an argument
-      posts_hashes = posts.map do |post|    # make a hash out of the post object
+      posts_hashes = posts.map do |post|    # converts the array of objects into an array of hashes
         {'id' => post.id,
         'title' => post.title,
         'date' => post.date} 
