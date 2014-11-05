@@ -1,0 +1,12 @@
+<h1> I'm a blog!</h1>
+
+<% if posts.empty? == false %>
+    <p>Here's a list of blog posts:</p> 
+<% posts.each do |post| %>
+    <h3><a href="/<%= post.date.year %>/<%= post.date.month %>/<%= post.date.day %>/<%= post.id %>"><%= post.title %></a> </h3>
+    <% end %>
+    <% else %>
+    <p>The are currently no posts to display.</p> 
+    <% end %>
+<a href='/new'>New Post</a>
+

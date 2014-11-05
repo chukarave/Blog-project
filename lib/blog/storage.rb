@@ -32,6 +32,12 @@ module Blog
       end  
     end
 
+    def make_id(title)
+      words = title.split
+      composit = words.join("-")
+      return composit.downcase
+    end  
+
     def get_all_posts()
       posts = yaml_load.map do |value|
         Blog::Post.new(value["id"], value["title"], value["date"])       # iteration on the array of hashes harvests the value for 'title' and 'date' from each hashmap
@@ -49,14 +55,23 @@ module Blog
       end                                      # a new instance of the OpenStruct class is created, with which an object is generated.    
     end                                                    
 
+    def get_post_by_id_date(year, month, day, id)
+      get_all_posts.map do |value|
+        if value.id == id &&
+          value.date.year == year.to_i &&
+          value.date.month == month.to_i &&
+          value.date.day == day.to_i
+          return value
+        end
+      end  
+    end  
+
     def save(post)
       all_posts = get_all_posts()     # calls the get_all_posts method and packs the as an array in a variable
       post_exists = false         # an indication if the given post already exists in the array file 
       all_posts.each do |p|       # if the id of the post is found in the array, update the title, date and content into the hash accordingly.
         if p.id == post.id
-          p.title == post.title
           p.date == post.date
-          p.content == post.content
           post_exists = true     # reflect that the post already exists. 
         end 
       end
