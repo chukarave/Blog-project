@@ -33,6 +33,7 @@ module Blog
     end
 
     def make_id(title)
+      title.gsub!(/^[\w ]/, "")
       words = title.split
       composit = words.join("-")
       return composit.downcase
@@ -40,7 +41,7 @@ module Blog
 
     def get_all_posts()
       posts = yaml_load.map do |value|
-        Blog::Post.new(value["id"], value["title"], value["date"])       # iteration on the array of hashes harvests the value for 'title' and 'date' from each hashmap
+        Blog::Post.new(value["id"], value["title"], value["date"], value["updated_on"])       # iteration on the array of hashes harvests the value for 'title' and 'date' from each hashmap
       end                                                                # and uses it as an argument for the Post class which returns a post object 
 
       return posts                                                       # returns an array of post objects 
@@ -49,7 +50,7 @@ module Blog
     def get_post_by_id(id)
       yaml_load.map do |value|
         if value["id"] == id
-          return Blog::Post.new(value["id"], value["title"], value["date"])     
+          return Blog::Post.new(value["id"], value["title"], value["date"], value["updated_on"])     
           # the output of this method should be an object, on which the method .title could be called. 
         end                                    # to do that, an iteration is implemented and if the id value of a Hashmap equals the argument,     
       end                                      # a new instance of the OpenStruct class is created, with which an object is generated.    
@@ -101,7 +102,9 @@ module Blog
       posts_hashes = posts.map do |post|    # converts the array of objects into an array of hashes
         {'id' => post.id,
         'title' => post.title,
-        'date' => post.date} 
+        'date' => post.date,
+        'updated_on' => Date.today} 
+
       end
       File.open(@yaml_path, 'w') do |y|  # write the hashes into the yml file. 
         YAML.dump(posts_hashes, y)

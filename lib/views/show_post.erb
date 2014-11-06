@@ -1,7 +1,9 @@
 <h1> <%=post.title %> </h1>
-
+<h4> Last updated on: <%=post.updated_on %> </h4>
 <p> <%=content %> </p>
 
+
+<a href='/<%= post.date.year %>/<%= post.date.month %>/<%= post.date.day %>/<%= post.id %>/edit'>Edit</a>
 <a href='/home'>Home</a>
 
 
