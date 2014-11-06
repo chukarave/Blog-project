@@ -108,7 +108,7 @@ module Blog
       post_date  = Date.new(params[:year].to_i, params[:month].to_i, params[:day].to_i)
       updated_on = Date.today
 
-      p = Blog::Post.new(post_id, post_title, post_date, update_on) # creates a new post object.
+      p = Blog::Post.new(post_id, post_title, post_date, updated_on) # creates a new post object.
       p.content = post_content        # assign the entered content as the post object content.
       save_new_post(p)
     end
