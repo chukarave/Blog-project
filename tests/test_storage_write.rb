@@ -12,13 +12,13 @@ class TestStorageWrite < Test::Unit::TestCase
   def test_store_post()
 
     # make a few blog posts
-    p1 = Blog::Post.new("lorem-ipsum", "Lorem Ipsum", Date.new(2014, 8, 17))
+    p1 = Blog::Post.new("lorem-ipsum", "Lorem Ipsum", Date.new(2014, 8, 17), Date.new(2014, 8, 17))
     p1.content = "Lorem Ipsum\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit."
 
-    p2 = Blog::Post.new("fringilla-sit", "Fringilla Sit", Date.new(2012, 9, 2))
+    p2 = Blog::Post.new("fringilla-sit", "Fringilla Sit", Date.new(2012, 9, 2), Date.new(2012, 9, 2))
     p2.content = "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
 
-    p3 = Blog::Post.new("parturient-ultricies", "Parturient Ultricies", Date.new(2013, 2, 11))
+    p3 = Blog::Post.new("parturient-ultricies", "Parturient Ultricies", Date.new(2013, 2, 11), Date.new(2013, 2, 11))
     p3.content = "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
 
     # store the blog posts
