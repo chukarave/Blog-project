@@ -80,7 +80,9 @@ module Blog
         status 400
         return erb :client_error
       end
-      
+
+      i = Blog::Storage.new(BASE_DIR)
+
       post_date = Date.today            # assign today's date to the newly created post.
       post_id = i.make_id(post_title)      # creates the post id by calling the make_id method (in storage.rb).
       updated_on = post_date
@@ -115,7 +117,6 @@ module Blog
 
     def save_new_post(p)
       i = Blog::Storage.new(BASE_DIR)
-
       begin
         i.save(p)
       rescue                        #  error handling - if something went wrong on the server side during the saving of the post, return server_error.erb.
