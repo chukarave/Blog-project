@@ -21,10 +21,13 @@ class TestPost < Test::Unit::TestCase
   end
 
   def test_post_content
-    p = Blog::Post.new("foobar", "Foobar", Date.new(2014, 10, 28), Date.new(2014, 11, 28))
+    p = Blog::Post.new("foobar", "Foobar", Date.new(2014, 10, 28), Date.new(2014, 11, 6))
     assert_equal(nil , p.content); # p.content get content from the Post class with the title and Date as identifiers.
     p.content = "ABDCE"            # writes content into the post
     assert_equal("ABDCE", p.content);      # reads the previously written content
+    assert_equal(2014, p.updated_on.year)          # use Post title to get the post's date. The .year is a derivative of the Ruby Date class.
+    assert_equal(11, p.updated_on.month)
+    assert_equal(6, p.updated_on.day)
 
   end
 
